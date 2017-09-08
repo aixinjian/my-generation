@@ -7,15 +7,8 @@ import com.gen.domain.BeanFile;
 import com.gen.domain.ColumnProperties;
 import com.gen.util.Utils;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 /**
@@ -343,10 +336,10 @@ public class DatabaseTableInfo {
 		}
 
 		if (isForm) {
-			defaultImportList.add("com.qianmi.ehome.gateway.ka.form.BaseQueryForm");
+			defaultImportList.add(Config.formPackage+".BaseQueryForm");
 
 		} else {
-			defaultImportList.add("com.qianmi.ehome.gateway.ka.domain.condition.BaseCondition");
+			defaultImportList.add(Config.conditionPackage+".BaseCondition");
 		}
 
 		BeanFile beanFile = this.createBeanFile(className, packageName, moduleName, conditionPropertiesList, defaultImportList, isForm ? 1 : 0);
