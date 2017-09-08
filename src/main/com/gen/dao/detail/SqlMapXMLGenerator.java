@@ -253,14 +253,14 @@ public class SqlMapXMLGenerator {
 			insertValues.append((columnProperties.isPrimary() ? "" : "\r\n\t\t" + emptyTest)
 							  + "\r\n\t\t\t" + (columnProperties.isPrimary() ? "" : ",") + "#{" + colName + ",jdbcType=" + this.getJDBCType(columnProperties.getClazz()) + "}" + (columnProperties.isPrimary() ? "" : "\r\n\t\t</if>"));
 		}
-		sqlData.append("\t<insert id=\"insert\" parameterType=\"" + dbTableInfo.getPo().getClassName() + "\">");
+		sqlData.append("\t<insert id=\"insert\" parameterType=\"" + dbTableInfo.getPo().getPackageName() + "." + dbTableInfo.getPo().getClassName() + "\">");
 		if (dbTableInfo.isAutoIncrement()) {
 			sqlData.append("\r\n\t\t<selectKey resultType=\"" + primaryKey.getClazz() + "\" order=\"AFTER\" keyProperty=\"" + primaryKey.getFieldId() + "\">")
 					.append("\r\n\t\t\t\tSELECT LAST_INSERT_ID()")
 					.append("\r\n\t\t</selectKey>\r\n");
 		}
 
-		sqlData.append("\t\tINSERT INTO " + dbTableInfo.getTableName() + "(  " + insertFields+"\r\n\t\t)")
+		sqlData.append("\r\n\t\tINSERT INTO " + dbTableInfo.getTableName() + "(  " + insertFields+"\r\n\t\t)")
 		       .append("\r\n\t\tVALUES( " + insertValues + "\r\n\t\t)")
 		       .append("\r\n\t</insert>\r\n");
 		return sqlData.toString();
@@ -297,7 +297,7 @@ public class SqlMapXMLGenerator {
 						+ "\r\n\t\t\t    t." + fieldId + " = " + valueStr+ ", \r\n\t\t    </if>");
 			}
 		}
-		sqlData.append("\t<update id=\"update\" parameterType=\"" + dbTableInfo.getPo().getClassName() + "\">")
+		sqlData.append("\t<update id=\"update\" parameterType=\"" + dbTableInfo.getPo().getPackageName() + "." + dbTableInfo.getPo().getClassName() + "\">")
 			   .append("\r\n\t\tUPDATE " + dbTableInfo.getTableName() + " t")
 			   .append("\r\n\t\t <set>"+updateContent+"\r\n\t    </set>")
 			   .append("\r\n\t\t WHERE ")

@@ -46,8 +46,8 @@ public class ControllerGenerator {
 				.append("import " + Config.exceptionPackage + "." + Config.exceptionName + ";\r\n")
 				.append("import " + Config.responseEntityPackage + "." +Config.responseEntityName + ";\r\n")
 
-				.append("import com.qianmi.base.response.CentreListResponse;")
-				.append("import com.qianmi.base.response.CentreCutPageResponse;")
+				.append("import com.qianmi.base.response.CentreListResponse;\r\n")
+				.append("import com.qianmi.base.response.CentreCutPageResponse;\r\n")
 				.append("import java.util.List;\r\n")
 				.append("import java.util.ArrayList;\r\n")
 				.append("import com.bm.center.base.util.CopyUtil;\r\n")
