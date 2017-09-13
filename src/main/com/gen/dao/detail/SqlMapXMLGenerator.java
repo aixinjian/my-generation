@@ -112,8 +112,8 @@ public class SqlMapXMLGenerator {
 			String clazz = columnProperties.getClazz();
 			String fieldId = columnProperties.getFieldId();
 			String emptyTest = "<if test=\"" + colName + " != null";
-			if (columnProperties.getName().equals("String")){
-				emptyTest += " and " + colName + " != ''";
+			if (columnProperties.getClazz().equals("String")){
+				emptyTest = emptyTest + " and " + colName + " != ''";
 			}
 			emptyTest += "\">";
 
