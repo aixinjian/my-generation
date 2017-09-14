@@ -97,7 +97,7 @@ public class ColumnProperties {
 		StringBuilder propertiesData = new StringBuilder();
 
 		String dateFormatPattern = "DateUtil.FORMAT";
-		propertiesData.append("\t@ApiModelProperty(value = \"" + comment + (clazz.equals("Date") ? ",格式为:\" + " + dateFormatPattern : "\"") + ", required = " + (StringUtils.isBlank(emptyAnnotation) ? "false" : "true") + ")\r\n");
+		propertiesData.append("\t@ApiModelProperty(value = \"" + comment + (clazz.equals("Date") ? ",格式为:\" + " + dateFormatPattern : "\"") + (StringUtils.isNotBlank(emptyAnnotation) ? ", required = true" : "") + ")\r\n");
 		if (clazz.equals("Date")) {
 			propertiesData.append("\t@DateTimeFormat(pattern = " + dateFormatPattern + ")\r\n");
 		}
@@ -118,7 +118,7 @@ public class ColumnProperties {
 	public StringBuilder toVoFile() {
 		StringBuilder propertiesData = new StringBuilder();
 
-		propertiesData.append("\t@ApiModelProperty(value = \"" + comment + "\"" + (isPrimary ? ", required = \"true" : "") + ")\r\n");
+		propertiesData.append("\t@ApiModelProperty(value = \"" + comment + "\"" + (isPrimary ? ", required = true" : "") + ")\r\n");
 		propertiesData.append("\tprivate ").append(clazz).append(" ")
 				.append(name).append(";\r\n\r\n");
 		return propertiesData;
