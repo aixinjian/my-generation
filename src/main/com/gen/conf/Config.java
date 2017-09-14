@@ -9,20 +9,38 @@ public interface Config {
      * 生成的接口根uri
      */
     String parentUri = "/ka";
+    //String parentUri = "";
 
 
+
+
+    /**
+     * 项目基本包名
+     */
+    String basePackage = "com.qianmi.ehome.gateway.ka";
+    //String basePackage = "com.qianmi.ehome.train.api";
+
+
+
+    /**
+     * 异常名称
+     */
+    String exceptionName = "GateWayKAException";
+    //String exceptionName = "TrainException";
 
     /**
      * 项目路径
      */
-    String projectPath = "/Users/caowei/workspace/MyGeneration/module/";
-    //String projectPath = "/Users/caowei/workspace/ehome-gateway-ka/";
+    //String projectPath = "/Users/caowei/workspace/ehome-train-api/";
+    //String projectPath = "/Users/caowei/workspace/MyGeneration/module/";
+    String projectPath = "/Users/caowei/workspace/ehome-gateway-ka/";
 
     /**
      * 项目名称
      */
-    String projectName = "module";
-    //String projectName = "ehome-gateway-ka";
+    //String projectName = "ehome-train-api";
+    //String projectName = "module";
+    String projectName = "ehome-gateway-ka";
 
     /**
      * dao模块名称
@@ -44,15 +62,11 @@ public interface Config {
      */
     String webModuleName = projectName + "-web";
 
-    /**
-     * 异常名称
-     */
-    String exceptionName = "GateWayKAException";
 
     /**
      * 异常类所在包
      */
-    String exceptionPackage = "com.qianmi.ehome.gateway.ka.domain.exception";
+    String exceptionPackage = basePackage + ".domain.exception";
 
     /**
      * 返回的包装类名称
@@ -62,7 +76,7 @@ public interface Config {
     /**
      * 返回的包装类路径
      */
-    String responseEntityPackage = "com.qianmi.ehome.gateway.ka.response";
+    String responseEntityPackage = basePackage + ".response";
 
     /**
      * 代码路径
@@ -73,11 +87,6 @@ public interface Config {
      * 资源路径
      */
     String resourcePath = "/src/main/resources/";
-
-    /**
-     * 项目基本包名
-     */
-    String basePackage = "com.qianmi.ehome.gateway.ka";
 
     /**
      * Po包名

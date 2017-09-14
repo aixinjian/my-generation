@@ -7,7 +7,7 @@ public class Main {
 		MybatisGenerator generator = new MybatisGenerator();
 
 		String[] maps = {
-				"tb_jz_user","jz_role","tb_company"
+				"tb_clue","tb_train_trade"
 		};
 
 		for (int i = 0; i < maps.length; i++) {

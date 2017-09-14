@@ -118,7 +118,7 @@ public class ColumnProperties {
 	public StringBuilder toVoFile() {
 		StringBuilder propertiesData = new StringBuilder();
 
-		propertiesData.append("\t@ApiModelProperty(value = \"" + comment + "\", required = " + (isPrimary ? "true" : "false") + ")\r\n");
+		propertiesData.append("\t@ApiModelProperty(value = \"" + comment + "\"" + (isPrimary ? ", required = \"true" : "") + ")\r\n");
 		propertiesData.append("\tprivate ").append(clazz).append(" ")
 				.append(name).append(";\r\n\r\n");
 		return propertiesData;
