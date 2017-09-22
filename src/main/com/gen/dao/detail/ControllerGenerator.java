@@ -144,7 +144,7 @@ public class ControllerGenerator {
 				.append("\t@ApiOperation(value = \"修改" + dbTableInfo.getTableComment() + "\",notes = \"修改" + dbTableInfo.getTableComment() + "\",httpMethod = \"POST\")\r\n")
 				.append("\t@RequestMapping(value = \"/update\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
 				.append("\tpublic @ResponseBody\r\n")
-				.append("\tResponseEntity<" + dbTableInfo.getVo().getClassName() + "> update(@ModelAttribute@Valid " + dbTableInfo.getUpdateForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\tResponseEntity update(@ModelAttribute@Valid " + dbTableInfo.getUpdateForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + po.getClassName() + " po = CopyUtil.transfer(form, " + po.getClassName() + ".class);\r\n");
 		if (optTimeColumn != null) {
 			if (headData.toString().indexOf(datePath) == -1) {
@@ -153,7 +153,7 @@ public class ControllerGenerator {
 			data.append("\t\tpo.set" + Utils.upperFirstChar(optTimeColumn.getName()) + "(new Date());\r\n");
 		}
 		data.append("\t\t" + serviceName + ".update(po);\r\n")
-				.append("\t\treturn this.query(form.get" + Utils.upperFirstChar(primaryKey.getName()) + "());\r\n")
+				.append("\t\treturn getSuccessResult();\r\n")
 				.append("\t}\r\n\r\n")
 
 
