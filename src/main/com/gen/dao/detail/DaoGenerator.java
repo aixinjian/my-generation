@@ -25,6 +25,7 @@ public class DaoGenerator {
 		StringBuffer data = new StringBuffer();
 
 		data.append("package " + Config.mapperJavaPackage + ";\r\n\r\n")
+				.append("import com.bm.center.base.mapper.BaseMapper;\r\n")
 				.append("import " + dbTableInfo.getPo().getPackageName() + "." + poClassName + ";\r\n")
 				.append("import " + dbTableInfo.getCondition().getPackageName() + "." + conditionClassName + ";\r\n\n")
 				.append("public interface " + dbTableInfo.getMapperClassName() + " extends BaseMapper<" + poClassName + ", " + conditionClassName + "> {\r\n\r\n")

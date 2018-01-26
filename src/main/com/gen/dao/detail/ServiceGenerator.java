@@ -24,6 +24,7 @@ public class ServiceGenerator {
 		StringBuffer data = new StringBuffer();
 
 		data.append("package " + Config.servicePackage + ";\r\n\r\n")
+				.append("import com.bm.center.base.service.BaseService;\r\n")
 				.append("import " + dbTableInfo.getPo().getPackageName() + "." + poClassName + ";\r\n")
 				.append("import " + dbTableInfo.getCondition().getPackageName() + "." + conditionClassName + ";\r\n\n")
 				.append("public interface " + dbTableInfo.getServiceClassName() + " extends BaseService<" + poClassName + ", " + conditionClassName + "> {\r\n\r\n")

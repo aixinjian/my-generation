@@ -336,10 +336,10 @@ public class DatabaseTableInfo {
 		}
 
 		if (isForm) {
-			defaultImportList.add(Config.formPackage+".BaseQueryForm");
+			defaultImportList.add("com.bm.center.base.form.BaseQueryForm");
 
 		} else {
-			defaultImportList.add(Config.conditionPackage+".BaseCondition");
+			defaultImportList.add("com.bm.center.base.condition.BaseCondition");
 		}
 
 		BeanFile beanFile = this.createBeanFile(className, packageName, moduleName, conditionPropertiesList, defaultImportList, isForm ? 1 : 0);

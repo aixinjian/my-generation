@@ -46,8 +46,10 @@ public class ControllerGenerator {
 				.append("import " + Config.exceptionPackage + "." + Config.exceptionName + ";\r\n")
 				.append("import " + Config.responseEntityPackage + "." +Config.responseEntityName + ";\r\n")
 
-				.append("import com.qianmi.base.response.CentreListResponse;\r\n")
-				.append("import com.qianmi.base.response.CentreCutPageResponse;\r\n")
+				.append("import com.bm.center.base.response.CentreListResponse;\r\n")
+				.append("import com.bm.center.base.response.CentreCutPageResponse;\r\n")
+				.append("import com.bm.center.base.response.ResponseEntity;\r\n")
+
 				.append("import java.util.List;\r\n")
 				.append("import java.util.ArrayList;\r\n")
 				.append("import com.bm.center.base.util.CopyUtil;\r\n")
@@ -61,7 +63,7 @@ public class ControllerGenerator {
 		data.append("@RestController\r\n")
 				.append("@RequestMapping(\"" + classUri + "\")\r\n")
 				.append("@Api(value = \"" + classUri + "\", description = \"" + dbTableInfo.getTableComment() + "\")\r\n")
-				.append("public class " + dbTableInfo.getControllerClassName() + " extends BaseController {\r\n\r\n")
+				.append("public class " + dbTableInfo.getControllerClassName() + " extends BaseGateWayController {\r\n\r\n")
 				.append("\t@Autowired\r\n")
 				.append("\tprivate " + dbTableInfo.getServiceClassName() + " " + serviceName + ";\r\n\r\n")
 
@@ -93,7 +95,7 @@ public class ControllerGenerator {
 				.append("\tResponseEntity<CentreListResponse<" + dbTableInfo.getVo().getClassName() + ">> queryList(@ModelAttribute@Valid " + dbTableInfo.getQueryForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + condition.getClassName() + " condition = this.getConditionByQueryForm(form);\r\n")
 				.append("\t\tList<" + po.getClassName() + "> poList = " + serviceName + ".queryList(condition);\r\n")
-				.append("\t\tList<" + vo.getClassName() + "> voList = CopyUtil.transferList(poList, " + vo.getClassName() + ".class);\r\n")
+				.append("\t\tList<" + vo.getClassName() + "> voList = CopyUtil.transfer(poList, " + vo.getClassName() + ".class);\r\n")
 				.append("\t\treturn getSuccessResult(getListResponse(voList));\r\n")
 				.append("\t}\r\n\r\n")
 
@@ -108,7 +110,7 @@ public class ControllerGenerator {
 				.append("\t\tint count = " + serviceName + ".queryCount(condition);\r\n")
 				.append("\t\tif (count > 0) {\r\n")
 				.append("\t\t\tList<" + po.getClassName() + "> poList = " + serviceName + ".queryList(condition);\r\n")
-				.append("\t\t\tvoList = CopyUtil.transferList(poList, " + vo.getClassName() + ".class);\r\n")
+				.append("\t\t\tvoList = CopyUtil.transfer(poList, " + vo.getClassName() + ".class);\r\n")
 				.append("\t\t}\r\n")
 				.append("\t\treturn getSuccessResult(getPageResponse(form, count, voList));\r\n")
 				.append("\t}\r\n\r\n")
