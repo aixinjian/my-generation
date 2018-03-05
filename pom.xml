@@ -7,6 +7,18 @@
     <groupId>com.qianmi</groupId>
     <artifactId>my-generation</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <packaging>pom</packaging>
 
@@ -85,12 +97,18 @@
         <dependency>
             <groupId>com.qianmi</groupId>
             <artifactId>bm-center-base</artifactId>
-            <version>1.0.2-RELEASE</version>
+            <version>1.1.31-RELEASE</version>
         </dependency>
         <dependency>
             <groupId>com.ofpay</groupId>
             <artifactId>interfacelog</artifactId>
             <version>2.3.0-RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>4.3.9.RELEASE</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
