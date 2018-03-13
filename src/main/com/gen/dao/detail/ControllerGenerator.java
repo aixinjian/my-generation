@@ -63,7 +63,7 @@ public class ControllerGenerator {
 		data.append("@RestController\r\n")
 				.append("@RequestMapping(\"" + classUri + "\")\r\n")
 				.append("@Api(value = \"" + classUri + "\", description = \"" + dbTableInfo.getTableComment() + "\")\r\n")
-				.append("public class " + dbTableInfo.getControllerClassName() + " extends BaseGateWayController {\r\n\r\n")
+				.append("public class " + dbTableInfo.getControllerClassName() + " extends BaseController {\r\n\r\n")
 				.append("\t@Autowired\r\n")
 				.append("\tprivate " + dbTableInfo.getServiceClassName() + " " + serviceName + ";\r\n\r\n")
 
