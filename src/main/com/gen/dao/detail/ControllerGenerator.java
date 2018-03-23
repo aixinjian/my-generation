@@ -44,8 +44,8 @@ public class ControllerGenerator {
 
 				.append("import " + Config.servicePackage + "." + dbTableInfo.getServiceClassName() + ";\r\n")
 				.append("import " + Config.exceptionPackage + "." + Config.exceptionName + ";\r\n")
-				.append("import " + Config.responseEntityPackage + "." +Config.responseEntityName + ";\r\n")
 
+				.append("import com.bm.center.base.controller.BaseController;\r\n")
 				.append("import com.bm.center.base.response.CentreListResponse;\r\n")
 				.append("import com.bm.center.base.response.CentreCutPageResponse;\r\n")
 				.append("import com.bm.center.base.response.ResponseEntity;\r\n")

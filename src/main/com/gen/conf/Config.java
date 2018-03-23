@@ -8,8 +8,8 @@ public interface Config {
     /**
      * 生成的接口根uri
      */
-    String parentUri = "/ka";
-    //String parentUri = "";
+    //String parentUri = "/ka";
+    String parentUri = "";
 
 
 
@@ -17,30 +17,33 @@ public interface Config {
     /**
      * 项目基本包名
      */
-    String basePackage = "com.qianmi.ehome.gateway.ka";
+    //String basePackage = "com.qianmi.ehome.gateway.ka";
     //String basePackage = "com.qianmi.ehome.train.api";
+    String basePackage = "com.bm001.ehome.microstore";
 
 
 
     /**
      * 异常名称
      */
-    String exceptionName = "GateWayKAException";
-    //String exceptionName = "TrainException";
+    //String exceptionName = "GateWayKAException";
+    String exceptionName = "EhomeMicroStoreException";
 
     /**
      * 项目路径
      */
     //String projectPath = "/Users/caowei/workspace/ehome-train-api/";
-    //String projectPath = "/Users/caowei/workspace/MyGeneration/module/";
-    String projectPath = "/Users/caowei/workspace/ehome-gateway-ka/";
+    String projectPath = "/Users/qinping/project/workspace/ehome-microstore/";
+    //String projectPath = "/Users/caowei/workspace/ehome-gateway-ka/";
 
     /**
      * 项目名称
      */
     //String projectName = "ehome-train-api";
     //String projectName = "module";
-    String projectName = "ehome-gateway-ka";
+    //String projectName = "ehome-gateway-ka";
+    String projectName = "ehome-microstore";
+
 
     /**
      * dao模块名称
@@ -67,16 +70,6 @@ public interface Config {
      * 异常类所在包
      */
     String exceptionPackage = basePackage + ".domain.exception";
-
-    /**
-     * 返回的包装类名称
-     */
-    String responseEntityName = "ResponseEntity";
-
-    /**
-     * 返回的包装类路径
-     */
-    String responseEntityPackage = basePackage + ".response";
 
     /**
      * 代码路径
