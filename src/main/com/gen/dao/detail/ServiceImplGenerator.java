@@ -22,7 +22,7 @@ public class ServiceImplGenerator {
 		StringBuffer data = new StringBuffer();
 
 		data.append("package " + Config.serviceImplPackage + ";\r\n\r\n")
-				.append("import com.bm.center.base.service.BaseService.BaseServiceImpl;\r\n")
+				.append("import com.bm.center.base.service.BaseServiceImpl;\r\n")
 				.append("import " + dbTableInfo.getPo().getPackageName() + "." + poClassName + ";\r\n")
 				.append("import " + dbTableInfo.getCondition().getPackageName() + "." + conditionClassName + ";\r\n")
 				.append("import " + Config.mapperJavaPackage + "." + dbTableInfo.getMapperClassName() + ";\r\n");
