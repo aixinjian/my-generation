@@ -193,8 +193,9 @@ public class SqlMapXMLGenerator {
 				.append("\r\n\t\tSELECT ")
 				.append("\r\n\t\t\tcount(1)")
 				.append("\r\n\t\t  FROM " + dbTableInfo.getTableName() + " t ")
-				.append("\r\n\t\t WHERE 1=1")
-				.append("\r\n\t\t<include refid=\"whereSql\"/>")
+				.append("\r\n\t\t<where>")
+				.append("\r\n\t\t\t<include refid=\"whereSql\"/>")
+				.append("\r\n\t\t</where>")
 				.append("\r\n\t</select>\r\n");
 		return sqlData.toString();
 
@@ -214,8 +215,9 @@ public class SqlMapXMLGenerator {
 				.append("\r\n\t\tSELECT ")
 				.append("\r\n\t\t<include refid=\"fieldSql\"/>")
 				.append("\r\n\t\t  FROM " + dbTableInfo.getTableName() + " t ")
-				.append("\r\n\t\t WHERE 1=1")
-				.append("\r\n\t\t<include refid=\"whereSql\"/>")
+				.append("\r\n\t\t<where>")
+				.append("\r\n\t\t\t<include refid=\"whereSql\"/>")
+				.append("\r\n\t\t</where>")
 				.append("\r\n\t</select>\r\n");
 		return sqlData.toString();
 
