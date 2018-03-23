@@ -140,8 +140,7 @@ public class ControllerGenerator {
 				// 修改
 				.append("\t@ApiOperation(value = \"修改" + dbTableInfo.getTableComment() + "\",notes = \"修改" + dbTableInfo.getTableComment() + "\",httpMethod = \"POST\")\r\n")
 				.append("\t@RequestMapping(value = \"/update\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic @ResponseBody\r\n")
-				.append("\tResponseEntity update(@ModelAttribute@Valid " + dbTableInfo.getUpdateForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\tpublic ResponseEntity update(@ModelAttribute@Valid " + dbTableInfo.getUpdateForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + po.getClassName() + " po = CopyUtil.transfer(form, " + po.getClassName() + ".class);\r\n");
 		if (optTimeColumn != null) {
 			if (headData.toString().indexOf(datePath) == -1) {
@@ -157,8 +156,7 @@ public class ControllerGenerator {
 				// 删除
 				.append("\t@ApiOperation(value = \"删除" + dbTableInfo.getTableComment() + "\",notes = \"删除" + dbTableInfo.getTableComment() + "\",httpMethod = \"POST\")\r\n")
 				.append("\t@RequestMapping(value = \"/delete\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic @ResponseBody\r\n")
-				.append("\tResponseEntity delete(@ApiParam(value = \"" + primaryKey.getComment() + "\", required = true)@RequestParam " + primaryKey.getClazz() + " " + primaryKey.getName() + ") throws " + Config.exceptionName + " {\r\n")
+				.append("\tpublic ResponseEntity delete(@ApiParam(value = \"" + primaryKey.getComment() + "\", required = true)@RequestParam " + primaryKey.getClazz() + " " + primaryKey.getName() + ") throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + serviceName + ".delete(" + primaryKey.getName() + ");\r\n")
 				.append("\t\treturn getSuccessResult();\r\n")
 				.append("\t}\r\n\r\n")
