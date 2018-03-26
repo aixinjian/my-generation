@@ -100,7 +100,7 @@ public interface Config {
     /**
      * Mapper.java包名
      */
-    String mapperJavaPackage = basePackage + ".mapper";
+    String mapperJavaPackage = basePackage + ".dao";
 
     /**
      * Service.java包名
