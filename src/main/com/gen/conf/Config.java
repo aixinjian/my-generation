@@ -19,7 +19,7 @@ public interface Config {
      */
     //String basePackage = "com.qianmi.ehome.gateway.ka";
     //String basePackage = "com.qianmi.ehome.train.api";
-    String basePackage = "com.bm001.ehome.microstore";
+    String basePackage = "com.bm001.ehome.jcloud";
 
 
 
@@ -27,13 +27,13 @@ public interface Config {
      * 异常名称
      */
     //String exceptionName = "GateWayKAException";
-    String exceptionName = "EhomeMicroStoreException";
+    String exceptionName = "JcloudException";
 
     /**
      * 项目路径
      */
     //String projectPath = "/Users/caowei/workspace/ehome-train-api/";
-    String projectPath = "/Users/qinping/project/workspace/ehome-microstore/";
+    String projectPath = "/Users/qinping/project/workspace/ehome-jcloud/";
     //String projectPath = "/Users/caowei/workspace/ehome-gateway-ka/";
 
     /**
@@ -42,7 +42,7 @@ public interface Config {
     //String projectName = "ehome-train-api";
     //String projectName = "module";
     //String projectName = "ehome-gateway-ka";
-    String projectName = "ehome-microstore";
+    String projectName = "ehome-jcloud";
 
 
     /**
@@ -100,7 +100,7 @@ public interface Config {
     /**
      * Mapper.java包名
      */
-    String mapperJavaPackage = basePackage + ".dao";
+    String mapperJavaPackage = basePackage + ".mapper";
 
     /**
      * Service.java包名
