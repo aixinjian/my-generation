@@ -37,9 +37,7 @@ public class ControllerGenerator {
 		headData.append("package " + Config.controllerPackage + ";\r\n\r\n")
 				.append("import " + po.getPackageName() + "." + po.getClassName() + ";\r\n")
 				.append("import " + condition.getPackageName() + "." + condition.getClassName() + ";\r\n")
-				.append("import " + queryForm.getPackageName() + "." + queryForm.getClassName() + ";\r\n")
-				.append("import " + updateForm.getPackageName() + "." + updateForm.getClassName() + ";\r\n")
-				.append("import " + createForm.getPackageName() + "." + createForm.getClassName() + ";\r\n")
+				.append("import " + queryForm.getPackageName() + ".*;\r\n")
 				.append("import " + vo.getPackageName() + "." + vo.getClassName() + ";\r\n")
 
 				.append("import " + Config.servicePackage + "." + dbTableInfo.getServiceClassName() + ";\r\n")
@@ -69,7 +67,7 @@ public class ControllerGenerator {
 
 				// 查询单个
 				.append("\t@ApiOperation(value = \"查询" + dbTableInfo.getTableComment() + "\",notes = \"查询" + dbTableInfo.getTableComment() + "\",httpMethod = \"GET\")\r\n")
-				.append("\t@RequestMapping(value = \"/query\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
+				.append("\t@GetMapping(value = \"/query\")\r\n")
 				.append("\tpublic ResponseEntity<" + dbTableInfo.getVo().getClassName() + "> query(@ApiParam(value = \"" + primaryKey.getComment() + "\", required = true)@RequestParam " + primaryKey.getClazz() + " " + primaryKey.getName() + ") throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + po.getClassName() + " po = " + serviceName + ".queryWithValid(" + primaryKey.getName() + ");\r\n")
 				.append("\t\t" + vo.getClassName() + " vo = CopyUtil.transfer(po, " + vo.getClassName() + ".class);\r\n")
@@ -77,9 +75,9 @@ public class ControllerGenerator {
 				.append("\t}\r\n\r\n")
 
 				// 查询数量
-				.append("\t@ApiOperation(value = \"查询" + dbTableInfo.getTableComment() + "数量\",notes = \"查询" + dbTableInfo.getTableComment() + "数量\",httpMethod = \"GET\")\r\n")
-				.append("\t@RequestMapping(value = \"/queryCount\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic ResponseEntity<Integer> queryCount(@ModelAttribute@Valid " + dbTableInfo.getQueryForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\t@ApiOperation(value = \"查询" + dbTableInfo.getTableComment() + "数量\",notes = \"查询" + dbTableInfo.getTableComment() + "数量\",httpMethod = \"POST\")\r\n")
+				.append("\t@PostMapping(value = \"/queryCount\")\r\n")
+				.append("\tpublic ResponseEntity<Integer> queryCount(@RequestBody@Valid " + queryForm.getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + condition.getClassName() + " condition = this.getConditionByQueryForm(form);\r\n")
 				.append("\t\tint count = " + serviceName + ".queryCount(condition);\r\n")
 				.append("\t\treturn getSuccessResult(count);\r\n")
@@ -87,9 +85,9 @@ public class ControllerGenerator {
 
 
 				// 查询列表
-				.append("\t@ApiOperation(value = \"查询" + dbTableInfo.getTableComment() + "列表\",notes = \"查询" + dbTableInfo.getTableComment() + "列表\",httpMethod = \"GET\")\r\n")
-				.append("\t@RequestMapping(value = \"/queryList\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic ResponseEntity<CentreListResponse<" + dbTableInfo.getVo().getClassName() + ">> queryList(@ModelAttribute@Valid " + dbTableInfo.getQueryForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\t@ApiOperation(value = \"查询" + dbTableInfo.getTableComment() + "列表\",notes = \"查询" + dbTableInfo.getTableComment() + "列表\",httpMethod = \"POST\")\r\n")
+				.append("\t@PostMapping(value = \"/queryList\")\r\n")
+				.append("\tpublic ResponseEntity<CentreListResponse<" + dbTableInfo.getVo().getClassName() + ">> queryList(@RequestBody@Valid " + queryForm.getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + condition.getClassName() + " condition = this.getConditionByQueryForm(form);\r\n")
 				.append("\t\tList<" + po.getClassName() + "> poList = " + serviceName + ".queryList(condition);\r\n")
 				.append("\t\tList<" + vo.getClassName() + "> voList = CopyUtil.transfer(poList, " + vo.getClassName() + ".class);\r\n")
@@ -98,9 +96,9 @@ public class ControllerGenerator {
 
 
 				// 查询列表
-				.append("\t@ApiOperation(value = \"查询" + dbTableInfo.getTableComment() + "列表(带分页)\",notes = \"查询" + dbTableInfo.getTableComment() + "列表(带分页)\",httpMethod = \"GET\")\r\n")
-				.append("\t@RequestMapping(value = \"/queryPageList\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic ResponseEntity<CentreCutPageResponse<" + dbTableInfo.getVo().getClassName() + ">> queryPageList(@ModelAttribute@Valid " + dbTableInfo.getQueryForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\t@ApiOperation(value = \"查询" + dbTableInfo.getTableComment() + "列表(带分页)\",notes = \"查询" + dbTableInfo.getTableComment() + "列表(带分页)\",httpMethod = \"POST\")\r\n")
+				.append("\t@PostMapping(value = \"/queryPageList\")\r\n")
+				.append("\tpublic ResponseEntity<CentreCutPageResponse<" + dbTableInfo.getVo().getClassName() + ">> queryPageList(@RequestBody@Valid " + queryForm.getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + condition.getClassName() + " condition = this.getConditionByQueryForm(form);\r\n")
 				.append("\t\tList<" + vo.getClassName() + "> voList = new ArrayList<>();\r\n")
 				.append("\t\tint count = " + serviceName + ".queryCount(condition);\r\n")
@@ -113,8 +111,8 @@ public class ControllerGenerator {
 
 				// 新增
 				.append("\t@ApiOperation(value = \"新增" + dbTableInfo.getTableComment() + "\",notes = \"新增" + dbTableInfo.getTableComment() + "\",httpMethod = \"POST\")\r\n")
-				.append("\t@RequestMapping(value = \"/add\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic ResponseEntity<" + dbTableInfo.getVo().getClassName() + "> add(@ModelAttribute@Valid " + dbTableInfo.getCreateForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\t@PostMapping(value = \"/add\")\r\n")
+				.append("\tpublic ResponseEntity<" + dbTableInfo.getVo().getClassName() + "> add(@RequestBody@Valid " + createForm.getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + po.getClassName() + " po = CopyUtil.transfer(form, " + po.getClassName() + ".class);\r\n");
 		if (!dbTableInfo.isAutoIncrement()) {
 			if ("String".equals(primaryKey.getClazz())) {
@@ -139,8 +137,8 @@ public class ControllerGenerator {
 
 				// 修改
 				.append("\t@ApiOperation(value = \"修改" + dbTableInfo.getTableComment() + "\",notes = \"修改" + dbTableInfo.getTableComment() + "\",httpMethod = \"POST\")\r\n")
-				.append("\t@RequestMapping(value = \"/update\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic ResponseEntity update(@ModelAttribute@Valid " + dbTableInfo.getUpdateForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\t@PostMapping(value = \"/update\")\r\n")
+				.append("\tpublic ResponseEntity update(@RequestBody@Valid " + updateForm.getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
 				.append("\t\t" + po.getClassName() + " po = CopyUtil.transfer(form, " + po.getClassName() + ".class);\r\n");
 		if (optTimeColumn != null) {
 			if (headData.toString().indexOf(datePath) == -1) {
@@ -155,9 +153,9 @@ public class ControllerGenerator {
 
 				// 删除
 				.append("\t@ApiOperation(value = \"删除" + dbTableInfo.getTableComment() + "\",notes = \"删除" + dbTableInfo.getTableComment() + "\",httpMethod = \"POST\")\r\n")
-				.append("\t@RequestMapping(value = \"/delete\", method = {RequestMethod.GET, RequestMethod.POST})\r\n")
-				.append("\tpublic ResponseEntity delete(@ApiParam(value = \"" + primaryKey.getComment() + "\", required = true)@RequestParam " + primaryKey.getClazz() + " " + primaryKey.getName() + ") throws " + Config.exceptionName + " {\r\n")
-				.append("\t\t" + serviceName + ".delete(" + primaryKey.getName() + ");\r\n")
+				.append("\t@PostMapping(value = \"/delete\")\r\n")
+				.append("\tpublic ResponseEntity delete(@RequestBody@Valid " + dbTableInfo.getDeleteForm().getClassName() + " form) throws " + Config.exceptionName + " {\r\n")
+				.append("\t\t" + serviceName + ".delete(form.get" + Utils.upperFirstChar(primaryKey.getName()) + "());\r\n")
 				.append("\t\treturn getSuccessResult();\r\n")
 				.append("\t}\r\n\r\n")
 

@@ -27,6 +27,7 @@ public class MybatisGenerator {
 		writeFile(dbTableInfo.getCreateForm().getFilePath(), dbTableInfo.getCreateForm().getClassName()+ ".java", dbTableInfo.getCreateForm().toString());
 		writeFile(dbTableInfo.getQueryForm().getFilePath(), dbTableInfo.getQueryForm().getClassName()+ ".java", dbTableInfo.getQueryForm().toString());
 		writeFile(dbTableInfo.getUpdateForm().getFilePath(), dbTableInfo.getUpdateForm().getClassName()+ ".java", dbTableInfo.getUpdateForm().toString());
+		writeFile(dbTableInfo.getUpdateForm().getFilePath(), dbTableInfo.getDeleteForm().getClassName()+ ".java", dbTableInfo.getDeleteForm().toString());
 		writeFile(dbTableInfo.getVo().getFilePath(), dbTableInfo.getVo().getClassName()+ ".java", dbTableInfo.getVo().toString());
 
 	}

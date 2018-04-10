@@ -6,6 +6,7 @@ import com.gen.conf.JDBC;
 import com.gen.domain.BeanFile;
 import com.gen.domain.ColumnProperties;
 import com.gen.util.Utils;
+import lombok.Getter;
 
 import java.sql.*;
 import java.util.*;
@@ -40,7 +41,10 @@ public class DatabaseTableInfo {
 
 	private BeanFile createForm;
 
+	@Getter
 	private BeanFile updateForm;
+
+	private BeanFile deleteForm;
 
 	private BeanFile vo;
 
@@ -133,6 +137,9 @@ public class DatabaseTableInfo {
 		// 初始化updateForm
 		updateForm = this.createUpdateFrom(className + "UpdateForm", Config.formPackage + "." + className.toLowerCase(), Config.webModuleName);
 
+		// 初始化deleteForm
+		deleteForm = this.createDeleteFrom(className + "DeleteForm", Config.formPackage + "." + className.toLowerCase(), Config.webModuleName);
+
 		// 初始化vo
 		vo = this.createBeanFile(className + "Vo", Config.voPackage + "." + className.toLowerCase(), Config.webModuleName, columnPropertiesList, null, 3);
 
@@ -185,6 +192,13 @@ public class DatabaseTableInfo {
 	public BeanFile getUpdateForm() {
 		return updateForm;
 	}
+
+
+	public BeanFile getDeleteForm() {
+		return deleteForm;
+	}
+
+
 
 	public BeanFile getVo() {
 		return vo;
@@ -402,6 +416,24 @@ public class DatabaseTableInfo {
 		return beanFile;
 	}
 
+	/**
+	 * 创建deleteForm
+	 *
+	 * @param className
+	 * @param packageName
+	 * @param moduleName
+	 * @return
+	 */
+	private BeanFile createDeleteFrom(String className, String packageName, String moduleName) {
+		List<ColumnProperties> formPropertiesList = new ArrayList<>();
+		for (ColumnProperties columnProperties : po.getPropertiesList()) {
+			if (columnProperties.isPrimary())
+				formPropertiesList.add(columnProperties);
+		}
+
+		BeanFile beanFile = this.createBeanFile(className, packageName, moduleName, formPropertiesList, null, 2);
+		return beanFile;
+	}
 
 
 

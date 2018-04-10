@@ -19,7 +19,7 @@ public interface Config {
      */
     //String basePackage = "com.qianmi.ehome.gateway.ka";
     //String basePackage = "com.qianmi.ehome.train.api";
-    String basePackage = "com.bm001.ehome.jcloud";
+    String basePackage = "com.bm001.ehome.conceal";
 
 
 
@@ -27,13 +27,13 @@ public interface Config {
      * 异常名称
      */
     //String exceptionName = "GateWayKAException";
-    String exceptionName = "JcloudException";
+    String exceptionName = "ConcealException";
 
     /**
      * 项目路径
      */
     //String projectPath = "/Users/caowei/workspace/ehome-train-api/";
-    String projectPath = "/Users/qinping/project/workspace/ehome-jcloud/";
+    String projectPath = "/Users/qinping/project/workspace/ehome-conceal/";
     //String projectPath = "/Users/caowei/workspace/ehome-gateway-ka/";
 
     /**
@@ -42,7 +42,7 @@ public interface Config {
     //String projectName = "ehome-train-api";
     //String projectName = "module";
     //String projectName = "ehome-gateway-ka";
-    String projectName = "ehome-jcloud";
+    String projectName = "ehome-conceal";
 
 
     /**
