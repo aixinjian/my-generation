@@ -96,10 +96,10 @@ public class ColumnProperties {
 	public StringBuilder toFormFile(String emptyAnnotation) {
 		StringBuilder propertiesData = new StringBuilder();
 
-		String dateFormatPattern = "DateUtil.FORMAT";
+		String dateFormatPattern = "DateUtil.DATE_TIME_FORMAT";
 		propertiesData.append("\t@ApiModelProperty(value = \"" + comment + (clazz.equals("Date") ? ",格式为:\" + " + dateFormatPattern : "\"") + (StringUtils.isNotBlank(emptyAnnotation) ? ", required = true" : "") + ")\r\n");
 		if (clazz.equals("Date")) {
-			propertiesData.append("\t@DateTimeFormat(pattern = " + dateFormatPattern + ")\r\n");
+			propertiesData.append("\t@JsonFormat(pattern = " + dateFormatPattern + ",timezone = \"GMT+8\")\r\n");
 		}
 		if (StringUtils.isNotBlank(emptyAnnotation)) {
 			propertiesData.append("\t@" + emptyAnnotation + "(message = \"" + comment + "不能为空" + "\")\r\n");

@@ -151,8 +151,8 @@ public class BeanFile {
             if (beanType == 1 || beanType == 2) {
 
                 String emptyAnnotation = null;
-                String dateUtilImport = Config.basePackage + ".util.DateUtil";
-                String DateTimeFormatImport = "org.springframework.format.annotation.DateTimeFormat";
+                String dateUtilImport = "com.bm.center.base.util.DateUtil";
+                String DateTimeFormatImport = "com.fasterxml.jackson.annotation.JsonFormat";
                 if (columnProperties.getClazz().equals("Date")) {
 
                     if (!importList.contains(dateUtilImport)) {
