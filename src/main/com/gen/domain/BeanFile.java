@@ -148,7 +148,7 @@ public class BeanFile {
         for (ColumnProperties columnProperties : columnPropertiesList) {
             String clazz = columnProperties.getClazz();
 
-            if (beanType == 1 || beanType == 2) {
+            if (beanType == 1 || beanType == 2 || beanType == 3) {
 
                 String emptyAnnotation = null;
                 String dateUtilImport = "com.bm.center.base.util.DateUtil";
