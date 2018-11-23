@@ -12,7 +12,7 @@ public class JDBC {
     // 1 mysql, 2 oracle
     public static int dbType = 1;
 
-    private static String url = "jdbc:mysql://172.19.72.134:3306/concealdb";
+    private static String url = "jdbc:mysql://172.19.70.38:3306/trainingdb";
     private static String username = "root";
     private static String password = "123456";
     private static String driverManager = "com.mysql.jdbc.Driver";

@@ -7,8 +7,9 @@ public class Main {
 		MybatisGenerator generator = new MybatisGenerator();
 
 		String[] maps = {
-				"tb_api_record", "tb_api_bill"
-				,"tb_report","tb_report_item"
+				"tb_approve_type","tb_approve_step_process",
+				"tb_approve_step","tb_approve_refund",
+				"tb_approve_main"
 		};
 
 		for (int i = 0; i < maps.length; i++) {
