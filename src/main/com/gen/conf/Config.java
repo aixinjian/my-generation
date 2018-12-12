@@ -1,7 +1,7 @@
 package com.gen.conf;
 
 /**
- * Created by caowei on 2017/8/31.
+ * Created by aixinjian on 2017/8/31.
  */
 public interface Config {
 
@@ -19,7 +19,7 @@ public interface Config {
      */
     //String basePackage = "com.qianmi.ehome.gateway.ka";
     //String basePackage = "com.qianmi.ehome.train.api";
-    String basePackage = "com.qianmi.ehome.train.api";
+    String basePackage = "com.zczy.truck.rent";
 
 
 
@@ -27,14 +27,14 @@ public interface Config {
      * 异常名称
      */
     //String exceptionName = "GateWayKAException";
-    String exceptionName = "TrainException";
+    String exceptionName = "ZczyTruckRentException";
 
     /**
      * 项目路径
      */
-    //String projectPath = "/Users/caowei/workspace/ehome-train-api/";
-    String projectPath = "/Users/aijian/code/shanda/ehome-train-api/";
-    //String projectPath = "/Users/caowei/workspace/ehome-gateway-ka/";
+    //String projectPath = "/Users/aixinjian/workspace/ehome-train-api/";
+    String projectPath = "/Users/aijian/code/zczy/zczy-truck-rent-gen/";
+    //String projectPath = "/Users/aixinjian/workspace/ehome-gateway-ka/";
 
     /**
      * 项目名称
@@ -42,7 +42,7 @@ public interface Config {
     //String projectName = "ehome-train-api";
     //String projectName = "module";
     //String projectName = "ehome-gateway-ka";
-    String projectName = "ehome-train-api";
+    String projectName = "zczy-truck-rent";
 
 
     /**

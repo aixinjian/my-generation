@@ -4,7 +4,7 @@ package com.gen.domain;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Created by caowei on 2017/8/31.
+ * Created by aixinjian on 2017/8/31.
  */
 public class ColumnProperties {
 

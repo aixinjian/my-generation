@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 /**
  * 代码生成类
  *
- * Created by caowei on 2017/8/31.
+ * Created by aixinjian on 2017/8/31.
  */
 public class MybatisGenerator {
 	public void generate(String tableName) throws Exception{

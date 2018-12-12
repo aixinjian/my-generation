@@ -6,13 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
- * Created by caowei on 16/4/15.
+ * Created by aixinjian on 16/4/15.
  */
 public class JDBC {
     // 1 mysql, 2 oracle
     public static int dbType = 1;
 
-    private static String url = "jdbc:mysql://172.19.70.38:3306/trainingdb";
+    private static String url = "jdbc:mysql://127.0.0.1:3306/zczy";
     private static String username = "root";
     private static String password = "123456";
     private static String driverManager = "com.mysql.jdbc.Driver";

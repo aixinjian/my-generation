@@ -12,7 +12,7 @@ import java.sql.SQLException;
 /**
  * 生成Controller.java
  *
- * Created by caowei on 2017/8/31.
+ * Created by aixinjian on 2017/8/31.
  */
 public class ControllerGenerator {
 	private String datePath = "import java.util.Date;";

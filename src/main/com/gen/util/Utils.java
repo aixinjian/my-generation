@@ -2,7 +2,7 @@ package com.gen.util;
 
 
 /**
- * Created by caowei on 2017/8/31.
+ * Created by aixinjian on 2017/8/31.
  */
 public class Utils {
 	public static String sql2JavaName(String str) {

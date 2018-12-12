@@ -13,7 +13,7 @@ import java.util.*;
 
 
 /**
- * Created by caowei on 2017/8/31.
+ * Created by aixinjian on 2017/8/31.
  */
 public class DatabaseTableInfo {
 
@@ -67,6 +67,12 @@ public class DatabaseTableInfo {
 		// 去掉前缀tb_jz_
 		if (className.startsWith("tb_")) {
 			className = className.substring(3);
+		}
+		if (className.startsWith("td_b_")) {
+			className = className.substring(5);
+		}
+		if (className.startsWith("tf_b_")) {
+			className = className.substring(5);
 		}
 		if (className.startsWith("jz_")) {
 			className = className.substring(3);

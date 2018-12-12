@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by caowei on 2017/9/4.
+ * Created by aixinjian on 2017/9/4.
  */
 public class BeanFile {
 

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 生成sql
  *
- * Created by caowei on 2017/8/31.
+ * Created by aixinjian on 2018/8/31.
  */
 public class SqlMapXMLGenerator {
 
@@ -346,9 +346,11 @@ public class SqlMapXMLGenerator {
 			return "VARCHAR";
 		} else if(javaType.equals("Date")){
 			return "TIMESTAMP";
-		} else if(javaType.equals("int") || javaType.equals("Integer") || javaType.equals("Long")){
+		} else if(javaType.equals("int") || javaType.equals("Integer") || javaType.equals("Long") || javaType.equals("smallint")){
 			return "INTEGER";
-		} else if(javaType.equals("BigDecimal")){
+		} else if(javaType.equals("Double")){
+			return "DOUBLE";
+		}else if(javaType.equals("BigDecimal")){
 			return "DECIMAL";
 		} else {
 			throw new SQLException("缺少jdbcType的定义,无法转换");
