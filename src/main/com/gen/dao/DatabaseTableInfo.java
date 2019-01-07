@@ -12,9 +12,6 @@ import java.sql.*;
 import java.util.*;
 
 
-/**
- * Created by aixinjian on 2017/8/31.
- */
 public class DatabaseTableInfo {
 
 
@@ -65,8 +62,8 @@ public class DatabaseTableInfo {
 		this.tableName = tableName;
 		className = tableName;
 		// 去掉前缀tb_jz_
-		if (className.startsWith("tb_")) {
-			className = className.substring(3);
+		if (className.startsWith("t_")) {
+			className = className.substring(2);
 		}
 		if (className.startsWith("td_b_")) {
 			className = className.substring(5);
@@ -88,7 +85,7 @@ public class DatabaseTableInfo {
 
 		// 初始化主键
 		// 	如果同一用户可访问多个schema，则要在getPrimaryKeys()要指定好schema的参数
-		ResultSet primaryKeySet = this.dmd.getPrimaryKeys(null, null, this.tableName.toUpperCase());
+		ResultSet primaryKeySet = this.dmd.getPrimaryKeys(null, null, this.tableName);
 		boolean hasPrimary = primaryKeySet.next();
 		if (!hasPrimary) {
 			throw new SQLException("表里不存在主键");
@@ -129,10 +126,10 @@ public class DatabaseTableInfo {
 		}
 
 		// 初始化PO类
-		po = this.createBeanFile(className + "Po", Config.poPackage + "." + className.toLowerCase(), Config.domainModuleName, columnPropertiesList, null, 0);
+		po = this.createBeanFile(className + "Po", Config.poPackage + "." + className.toLowerCase(), Config.daoModuleName, columnPropertiesList, null, 0);
 
 		// 初始化condition类
-		condition = this.createQueryBean(className + "Condition", Config.conditionPackage + "." + className.toLowerCase(), Config.domainModuleName, false);
+		condition = this.createQueryBean(className + "Condition", Config.conditionPackage + "." + className.toLowerCase(), Config.daoModuleName, false);
 
 		// 初始化queryForm类
 		queryForm = this.createQueryBean(className + "QueryForm", Config.formPackage + "." + className.toLowerCase(), Config.webModuleName, true);
@@ -356,10 +353,12 @@ public class DatabaseTableInfo {
 		}
 
 		if (isForm) {
-			defaultImportList.add("com.bm.center.base.form.BaseQueryForm");
+//			defaultImportList.add("com.bm.center.base.form.BaseQueryForm");
+			defaultImportList.add("com.hosjoy.agency.manage.base.form.BaseQueryForm");
 
 		} else {
-			defaultImportList.add("com.bm.center.base.condition.BaseCondition");
+//			defaultImportList.add("com.bm.center.base.condition.BaseCondition");
+			defaultImportList.add("com.hosjoy.agency.manage.base.conditon.BaseCondition");
 		}
 
 		BeanFile beanFile = this.createBeanFile(className, packageName, moduleName, conditionPropertiesList, defaultImportList, isForm ? 1 : 0);

@@ -43,14 +43,14 @@ public class ControllerGenerator {
 				.append("import " + Config.servicePackage + "." + dbTableInfo.getServiceClassName() + ";\r\n")
 				.append("import " + Config.exceptionPackage + "." + Config.exceptionName + ";\r\n")
 
-				.append("import com.bm.center.base.controller.BaseController;\r\n")
-				.append("import com.bm.center.base.response.CentreListResponse;\r\n")
-				.append("import com.bm.center.base.response.CentreCutPageResponse;\r\n")
-				.append("import com.bm.center.base.response.ResponseEntity;\r\n")
+				.append("import com.hosjoy.hbp.tms.base.controller.BaseController;\r\n")
+				.append("import com.hosjoy.hbp.tms.base.response.CentreListResponse;\r\n")
+				.append("import com.hosjoy.hbp.tms.base.response.CentreCutPageResponse;\r\n")
+				.append("import com.hosjoy.hbp.tms.base.response.ResponseEntity;\r\n")
 
 				.append("import java.util.List;\r\n")
 				.append("import java.util.ArrayList;\r\n")
-				.append("import com.bm.center.base.util.CopyUtil;\r\n")
+				.append("import com.hosjoy.agency.manage.base.util.CopyUtil;\r\n")
 				.append("import org.springframework.web.bind.annotation.*;\r\n")
 				.append("import javax.validation.Valid;\r\n")
 				.append("import io.swagger.annotations.Api;\r\n")
@@ -116,7 +116,7 @@ public class ControllerGenerator {
 				.append("\t\t" + po.getClassName() + " po = CopyUtil.transfer(form, " + po.getClassName() + ".class);\r\n");
 		if (!dbTableInfo.isAutoIncrement()) {
 			if ("String".equals(primaryKey.getClazz())) {
-				headData.append("import com.bm.center.base.util.UUIDUtil;\r\n");
+				headData.append("import com.hosjoy.agency.manage.base.util.UUIDUtil;\r\n");
 				data.append("\t\tpo.set" + Utils.upperFirstChar(primaryKey.getName()) + "(UUIDUtil.getUUID());\r\n");
 
 			} else if ("Integer".equals(primaryKey.getClazz())) {

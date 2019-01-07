@@ -8,41 +8,28 @@ public interface Config {
     /**
      * 生成的接口根uri
      */
-    //String parentUri = "/ka";
     String parentUri = "";
 
-
-
-
     /**
-     * 项目基本包名
+     * 项目基础包名
      */
-    //String basePackage = "com.qianmi.ehome.gateway.ka";
-    //String basePackage = "com.qianmi.ehome.train.api";
-    String basePackage = "com.zczy.truck.rent";
-
+    String basePackage = "com.hosjoy.hbp.tms";
 
 
     /**
      * 异常名称
      */
-    //String exceptionName = "GateWayKAException";
-    String exceptionName = "ZczyTruckRentException";
+    String exceptionName = "HosJoyHbpTmsException";
 
     /**
      * 项目路径
      */
-    //String projectPath = "/Users/aixinjian/workspace/ehome-train-api/";
-    String projectPath = "/Users/aijian/code/zczy/zczy-truck-rent-gen/";
-    //String projectPath = "/Users/aixinjian/workspace/ehome-gateway-ka/";
+    String projectPath = "/Users/aijian/code/hos/hosjoy-agency-manage/gen/";
 
     /**
      * 项目名称
      */
-    //String projectName = "ehome-train-api";
-    //String projectName = "module";
-    //String projectName = "ehome-gateway-ka";
-    String projectName = "zczy-truck-rent";
+    String projectName = "hosjoy-hbp-tms";
 
 
     /**
@@ -69,7 +56,7 @@ public interface Config {
     /**
      * 异常类所在包
      */
-    String exceptionPackage = basePackage + ".domain.exception";
+    String exceptionPackage = basePackage + ".base.exception";
 
     /**
      * 代码路径
@@ -84,12 +71,12 @@ public interface Config {
     /**
      * Po包名
      */
-    String poPackage = basePackage + ".domain.po";
+    String poPackage = basePackage + ".po";
 
     /**
      * Condition包名
      */
-    String conditionPackage = basePackage + ".domain.condition";
+    String conditionPackage = basePackage + ".condition";
 
     /**
      * Form包名

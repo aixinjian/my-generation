@@ -8,9 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by aixinjian on 2017/9/4.
- */
 public class BeanFile {
 
     /**
@@ -151,7 +148,7 @@ public class BeanFile {
             if (beanType == 1 || beanType == 2 || beanType == 3) {
 
                 String emptyAnnotation = null;
-                String dateUtilImport = "com.bm.center.base.util.DateUtil";
+                String dateUtilImport = "com.hosjoy.agency.manage.base.util.DateUtil";
                 String DateTimeFormatImport = "com.fasterxml.jackson.annotation.JsonFormat";
                 if (columnProperties.getClazz().equals("Date")) {
 
